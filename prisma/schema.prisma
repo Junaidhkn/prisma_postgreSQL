@@ -19,6 +19,9 @@ model User {
   writtenPosts   Post[]          @relation("WrittenPosts")
   favoritePosts  Post[]          @relation("FavoritePosts")
   UserPreference UserPreference?
+
+  @@unique([id, name, email, age])
+  @@index([email])
 }
 
 model UserPreference {
